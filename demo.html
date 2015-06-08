@@ -63,10 +63,95 @@
   <script type="text/javascript" async="" src="./FED-Lambert_smartMask at gh-pages_files/api.js"></script></head>
 
 <style type="text/css">
-a[href='javascript:']{
-  pointer-events : none
-}</style>
+  a[href='javascript:']{
+    pointer-events : none
+  }
+  .ui-trigger{position: absolute;z-index: 99}
+  .ui-mask{z-index: 99}
+  .ui-trigger em{display: block;width: auto;border: 2px solid #f1e05a;height: 100%;
+    -webkit-animation: ui-color 2s alternate infinite;
+    -moz-animation: ui-color 2s alternate infinite;
+    -o-animation: ui-color 2s alternate infinite;
+    animation: ui-color 2s alternate infinite;
+  }
+  @-webkit-keyframes ui-color {
+    from { border-color: #f1e05a }
+    to { border-color: #d26911 }
+  }
+  @-o-keyframes ui-color {
+    from { border-color: #f1e05a }
+    to { border-color: #d26911 }
+  }
+  @-moz-keyframes ui-color {
+    from { border-color: #f1e05a }
+    to { border-color: #d26911 }
+  }
+  @keyframes ui-color {
+    from { border-color: #f1e05a }
+    to { border-color: #d26911 }
+  }
+  .ui-tg1{width: 140px;height: 30px;top: 67px;left: 50%;margin-left: 160px}
+  .ui-tg2{width: 93px;height: 30px;top: 67px;left: 50%;margin-left: 303px}
+  .ui-tg3{width: 96px;height: 30px;top: 67px;left: 50%;margin-left: 400px}
+  .ui-tg4{width: 300px;height: 300px;top: 670px;left: 50%;margin-left: -470px}
+  .ui-tg5{width: 190px;height: 200px;top: 480px;left: 50%;margin-left: 310px}
+  .ui-pop, .ui-back{
+    position: fixed;
+    z-index: 999;
+    padding: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    width: 400px;
+    top: 40%;
+    left: 50%;
+    margin-left: -200px;
+    background-color: #eee;
+    display: none;
+    border-radius: 5px;
+  }
+  .ui-pop a{
+    float: right;
+  }
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="smartMask.js"></script>
+<script type="text/javascript">
+  (function ( $ ) {
+    $(function () {
+      new SmartMask({
+        wrap : 'body',
+        trigger : '.ui-trigger',
+        maskClass : 'ui-mask',
+        config : [
+          [0,1,2]
+        ],
+        beforeShow : function( index, location, member) {
+          switch(index) {
+            case 0 :
+            case 1 :
+            case 2 : var html = 'if you like, please give me a Star!  :)';break;
+            case 3 : var html = 'I think they could help you to use!  :)';break;
+            case 4 : var html = 'Download the plugin and start!';break;
+          }
+          $('.ui-pop h3').html(html).parent().fadeIn(400);
+        },
+        beforeHide : function() {
+          $('.ui-pop').fadeOut(400);
+        }
+      })
+    })
+  })(jQuery)
+</script>
 <body class="logged_in  env-production macintosh vis-public">
+
+    <div class="ui-trigger ui-tg1"><em></em></div>
+    <div class="ui-trigger ui-tg2"><em></em></div>
+    <div class="ui-trigger ui-tg3"><em></em></div>
+    <div class="ui-trigger ui-tg4"><em></em></div>
+    <div class="ui-trigger ui-tg5"><em></em></div>
+    <div class="ui-pop"><h3></h3></div>
+
     <a href="javascript:" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
     <div class="wrapper">
 
