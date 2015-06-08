@@ -18,7 +18,7 @@
 	var handle = ['show','hide','getTriggerList','setConfig','getConfig'];
 	var option = {
 		maskClass	: '',
-		event		: 'click',
+		event		: 'mouseover',
 		transition  : true,
 		duration 	: 400,
 		beforeShow  : function(){},
@@ -288,13 +288,13 @@
 			var visibility = false;
 			if (this.event == 'mouseover') {
 				this.wrap.on(this.event, this.trigger.selector, function ( e ) {
-					if (visibility || self.animating) {
+					if (visibility) {
 						return false;
 					}
 					self.show(self.getIndex(this));
 					visibility = true;
 				}).on('mouseout', this.trigger, function ( e ) {
-					if (!visibility || self.animating) {
+					if (!visibility) {
 						return false;
 					}
 					self.hide();
@@ -302,9 +302,9 @@
 				})
 			} else if (this.event == 'click' || this.event == 'touch') {
 				this.wrap.on(this.event, this.trigger.selector, function ( e ) {
-					if (self.animating) {
-						return false
-					}
+					// if (self.animating) {
+					// 	return false
+					// }
 					if (visibility) {
 						visibility = false;
 						self.hide();
