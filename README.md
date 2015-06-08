@@ -19,7 +19,6 @@ smartMask是基于[jQuery]的实现镂空遮罩的插件，支持各种不规律
 
 ### <a name="demo"></a>示例(Demo) [[⬆]](#top)
 [Demo]
-![Alt text](/demo.gif)
 
 ### <a name="require"></a>依赖(Require) [[⬆]](#top)
 [jQuery]
